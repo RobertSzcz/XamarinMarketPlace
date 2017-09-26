@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="transition_current_scene" type="id"/>
-    <item name="transition_scene_layoutid_cache" type="id"/>
-</resources>
+<resources><item name="transition_current_scene" type="id" /><item name="transition_scene_layoutid_cache" type="id" /></resources>

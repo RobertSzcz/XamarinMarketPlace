@@ -1,0 +1,15 @@
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\XamarinMarketPlace.dll
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\XamarinMarketPlace.pdb
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Platform.pdb
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\obj\Debug\XamarinMarketPlace.csproj.CoreCompileInputs.cache
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\obj\Debug\XamarinMarketPlace.MainPage.xaml.g.cs
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\obj\Debug\XamarinMarketPlace.App.xaml.g.cs
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\obj\Debug\XamarinMarketPlace.dll
+C:\Users\Robert\source\repos\XamarinMarketPlace\XamarinMarketPlace\XamarinMarketPlace\obj\Debug\XamarinMarketPlace.pdb
