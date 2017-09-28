@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMarketPlace.LandingPage"
+             Title="Landing Page">
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Center"
+                     Orientation="Vertical"
+                     Padding="30">
+
+            <Button Text="Sign In" Clicked="SignIn_Clicked" />
+            <Button Text="Sign Up" Clicked="SignUp_Clicked"/>
+            <Button Text="Browse" Clicked="Browse_Clicked" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

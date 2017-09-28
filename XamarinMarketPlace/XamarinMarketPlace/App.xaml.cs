@@ -13,7 +13,8 @@ namespace XamarinMarketPlace
         {
             InitializeComponent();
 
-            MainPage = new XamarinMarketPlace.MainPage();
+            //MainPage = new XamarinMarketPlace.MainPage();
+            MainPage = new NavigationPage(new LandingPage());
         }
 
         protected override void OnStart()
