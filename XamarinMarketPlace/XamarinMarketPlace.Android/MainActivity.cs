@@ -1,11 +1,11 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace XamarinMarketPlace.Droid
 {
@@ -18,6 +18,9 @@ namespace XamarinMarketPlace.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+            // Initialize Azure Mobile Apps
+            CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());

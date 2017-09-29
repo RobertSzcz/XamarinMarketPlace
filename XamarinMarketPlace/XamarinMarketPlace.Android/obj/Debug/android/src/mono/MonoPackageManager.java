@@ -100,6 +100,11 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "XamarinMarketPlace.Android.dll" comes first in this list. */
 		"XamarinMarketPlace.Android.dll",
 		"FormsViewGroup.dll",
+		"Microsoft.WindowsAzure.Mobile.dll",
+		"Microsoft.WindowsAzure.Mobile.Ext.dll",
+		"Newtonsoft.Json.dll",
+		"System.Net.Http.Extensions.dll",
+		"System.Net.Http.Primitives.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Annotations.dll",
 		"Xamarin.Android.Support.Compat.dll",
