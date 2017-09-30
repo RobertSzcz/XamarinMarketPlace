@@ -12,21 +12,20 @@
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand"/>
+                <Entry HorizontalOptions="FillAndExpand" x:Name="EntryTitle" TextChanged="Entry_TextChanged"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Price:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand"/>
+                <Entry HorizontalOptions="FillAndExpand" x:Name="EntryPrice" TextChanged="Entry_TextChanged"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Editor HorizontalOptions="FillAndExpand"/>
+                <Editor HorizontalOptions="FillAndExpand" x:Name="EntryDescription" TextChanged="Entry_TextChanged"/>
             </StackLayout>
 
             <Button Text="Take Picture" />
-            <Button Text="Add Offer" IsEnabled="False" />
+            <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>
 
         </StackLayout>
     </ContentPage.Content>
-
 </ContentPage>
