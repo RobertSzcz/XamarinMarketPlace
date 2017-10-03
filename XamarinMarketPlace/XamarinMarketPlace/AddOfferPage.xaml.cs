@@ -32,6 +32,8 @@ namespace XamarinMarketPlace
             string title = EntryTitle.Text;
             string price = EntryPrice.Text;
             string description = EntryDescription.Text;
+            // testing purposes
+            string userId = Constants.UserId;
             
             // checks whether all information is filled
             if (title == "" || price == "" || description == "")
@@ -41,7 +43,7 @@ namespace XamarinMarketPlace
             else
             {
                 // create new offer and send it to the db
-                var offer = new Offer { Title = title, Price = price, Description = description };
+                var offer = new Offer { Title = title, Price = price, Description = description, UserId = userId };
                 await AddItem(offer);
 
                 // clear the entries

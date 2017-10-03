@@ -10,5 +10,8 @@ namespace XamarinMarketPlace
     {
         // This is our Azure Mobile App backend URL.
         public static string ApplicationURL = @"https://xamarinproject.azurewebsites.net";
+
+        // test purposes
+        public static string UserId = "veeti";
     }
 }

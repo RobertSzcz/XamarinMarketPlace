@@ -52,7 +52,27 @@ namespace XamarinMarketPlace
             try
             {
                 IEnumerable<Offer> items = await offerTable
-                    .Where(offerItem => !offerItem.Done)
+                    .ToEnumerableAsync();
+
+                return new ObservableCollection<Offer>(items);
+            }
+            catch (MobileServiceInvalidOperationException msioe)
+            {
+                Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(@"Sync error: {0}", e.Message);
+            }
+            return null;
+        }
+
+        public async Task<ObservableCollection<Offer>> GetOffersByUserId(string userId)
+        {
+            try
+            {
+                IEnumerable<Offer> items = await offerTable
+                    .Where (offer => offer.UserId == userId)
                     .ToEnumerableAsync();
 
                 return new ObservableCollection<Offer>(items);

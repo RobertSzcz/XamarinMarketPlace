@@ -6,11 +6,26 @@
 
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
-                     VerticalOptions="Center"
                      Orientation="Vertical"
                      Padding="30">
 
-            <Button Text="Edit Offer" Clicked="Button_Clicked"/>
+            <ListView x:Name="OffersView"
+                      ItemTapped="Offer_Clicked"
+                      ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Title}" FontSize="Large"/>
+                                    <Label Text="{Binding Price, StringFormat='{0}€'}" FontSize="Large"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

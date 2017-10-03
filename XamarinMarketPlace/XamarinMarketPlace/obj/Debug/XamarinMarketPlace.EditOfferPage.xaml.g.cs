@@ -11,8 +11,8 @@
 namespace XamarinMarketPlace {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPl" +
-        "ace\\EditOfferPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Veeti\\Desktop\\git\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPla" +
+        "ce\\EditOfferPage.xaml")]
     public partial class EditOfferPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

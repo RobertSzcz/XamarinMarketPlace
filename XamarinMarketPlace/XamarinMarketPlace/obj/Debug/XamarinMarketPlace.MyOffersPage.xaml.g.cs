@@ -11,13 +11,17 @@
 namespace XamarinMarketPlace {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPl" +
-        "ace\\MyOffersPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Veeti\\Desktop\\git\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPla" +
+        "ce\\MyOffersPage.xaml")]
     public partial class MyOffersPage : global::Xamarin.Forms.ContentPage {
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ListView OffersView;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MyOffersPage));
+            OffersView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "OffersView");
         }
     }
 }

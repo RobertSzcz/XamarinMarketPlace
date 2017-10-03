@@ -11,8 +11,8 @@
 namespace XamarinMarketPlace {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPl" +
-        "ace\\LandingPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Veeti\\Desktop\\git\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPla" +
+        "ce\\LandingPage.xaml")]
     public partial class LandingPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
