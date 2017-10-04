@@ -9,7 +9,22 @@
                      VerticalOptions="Center"
                      Orientation="Vertical"
                      Padding="30">
-
+            <ListView x:Name="OffersView"
+                      ItemTapped="Offer_Clicked"
+                      ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Title}" FontSize="Large"/>
+                                    <Label Text="{Binding Price, StringFormat='{0}€'}" FontSize="Large"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <Button Text="To LandingPage" Clicked="To_LandingPage_Clicked" />
         </StackLayout>
     </ContentPage.Content>
