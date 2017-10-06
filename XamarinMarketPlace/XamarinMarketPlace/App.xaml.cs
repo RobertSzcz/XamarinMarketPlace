@@ -9,9 +9,15 @@ namespace XamarinMarketPlace
 {
     public partial class App : Application
     {
+
+        //Temp variable to check user-signedin status
+        public static bool userIsSignedIn { get; set; }
+
         public App()
         {
             InitializeComponent();
+
+            userIsSignedIn = false;
 
             //MainPage = new XamarinMarketPlace.MainPage();
             MainPage = new NavigationPage(new LandingPage());

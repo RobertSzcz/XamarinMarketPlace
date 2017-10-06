@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:XamarinMarketPlace"
              x:Class="XamarinMarketPlace.MainPage">
 
+    
+    <!--
     <local:BrowseOffersPage />
     <local:AddOfferPage />
     <NavigationPage Title="My Offers">
@@ -11,5 +13,6 @@
             <local:MyOffersPage />
         </x:Arguments>
     </NavigationPage>
-
+    -->
+    
 </TabbedPage>

@@ -18,6 +18,7 @@ namespace XamarinMarketPlace
 
         public BrowseOffersPage ()
 		{
+            NavigationPage.SetHasNavigationBar(this, false);
             GetOffers();
             InitializeComponent();
         }
@@ -41,6 +42,13 @@ namespace XamarinMarketPlace
         {
             App.Current.MainPage = new NavigationPage(new LandingPage());
         }
+
+        async void To_OfferPreviewPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OfferPreviewPage());
+        }
+
         
+
     }
 }

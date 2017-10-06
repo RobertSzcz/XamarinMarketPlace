@@ -19,7 +19,7 @@ namespace XamarinMarketPlace
 
         private void SignIn_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PopToRootAsync();
+            App.userIsSignedIn = true;
             App.Current.MainPage = new NavigationPage(new MainPage());
         }
     }

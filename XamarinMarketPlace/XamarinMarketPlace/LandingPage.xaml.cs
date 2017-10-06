@@ -35,6 +35,7 @@ namespace XamarinMarketPlace
 
         private void Browse_Clicked(object sender, EventArgs e)
         {
+            App.userIsSignedIn = false;
             App.Current.MainPage = new NavigationPage(new MainPage());
         }
     }

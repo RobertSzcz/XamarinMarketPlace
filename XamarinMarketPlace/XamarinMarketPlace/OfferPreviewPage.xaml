@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMarketPlace.OfferPreviewPage"
+             Title="OfferTitle">
+
+    <ContentPage.Content>
+
+
+        <RelativeLayout>
+            <Image x:Name="offerImage" Aspect="Fill" 
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=0}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=0}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=0}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=0}"/>
+
+            <StackLayout HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Padding="30,15"
+                     BackgroundColor="White"
+                     Opacity="0.8"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.70,Constant=0}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=0}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.30,Constant=0}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1,Constant=0}">
+
+                <Label Text="Title" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                <Label Text="Price" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                <Label Text="Description" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="0506688994" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Button Text="Call" HorizontalOptions="End" FontSize="Medium" />
+                </StackLayout>
+
+            </StackLayout>
+        </RelativeLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

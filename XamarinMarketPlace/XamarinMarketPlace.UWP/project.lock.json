@@ -24643,19 +24643,19 @@
     "UAP,Version=v10.0.10586": []
   },
   "packageFolders": {
-    "C:\\Users\\Robert\\.nuget\\packages\\": {}
+    "C:\\Users\\Joni\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\Robert\\source\\repos\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\XamarinMarketPlace.UWP.csproj",
+      "projectUniqueName": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\XamarinMarketPlace.UWP.csproj",
       "projectName": "XamarinMarketPlace.UWP",
-      "projectPath": "C:\\Users\\Robert\\source\\repos\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\XamarinMarketPlace.UWP.csproj",
-      "projectJsonPath": "C:\\Users\\Robert\\source\\repos\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\project.json",
-      "packagesPath": "C:\\Users\\Robert\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Robert\\source\\repos\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\obj\\",
+      "projectPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\XamarinMarketPlace.UWP.csproj",
+      "projectJsonPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\project.json",
+      "packagesPath": "C:\\Users\\Joni\\.nuget\\packages\\",
+      "outputPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
-        "C:\\Users\\Robert\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Joni\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "sources": {
@@ -24665,8 +24665,8 @@
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {
-            "C:\\Users\\Robert\\source\\repos\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.csproj": {
-              "projectPath": "C:\\Users\\Robert\\source\\repos\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.csproj"
+            "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.csproj": {
+              "projectPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.csproj"
             }
           }
         }
