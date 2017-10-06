@@ -16,7 +16,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Price:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand" x:Name="EntryPrice" TextChanged="Entry_TextChanged"/>
+                <Entry HorizontalOptions="FillAndExpand" x:Name="EntryPrice" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>

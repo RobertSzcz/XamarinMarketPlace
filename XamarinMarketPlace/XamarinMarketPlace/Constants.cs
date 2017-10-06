@@ -12,6 +12,6 @@ namespace XamarinMarketPlace
         public static string ApplicationURL = @"https://xamarinproject.azurewebsites.net";
 
         // test purposes
-        public static string UserId = "veeti";
+        public static string UserId = "tester1337";
     }
 }

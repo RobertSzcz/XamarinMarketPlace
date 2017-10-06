@@ -10,7 +10,6 @@
                      Padding="30">
 
             <ListView x:Name="OffersView"
-                      ItemTapped="Offer_Clicked"
                       ItemSelected="OnSelection">
                 <ListView.ItemTemplate>
                     <DataTemplate>

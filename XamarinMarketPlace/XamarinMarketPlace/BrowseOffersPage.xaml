@@ -10,12 +10,7 @@
                      Orientation="Vertical"
                      Padding="30">
 
-            <Button Text="To OfferPreviewPage" Clicked="To_OfferPreviewPage_Clicked" />
-            <Button Text="To LandingPage" Clicked="To_LandingPage_Clicked" />
-
-
             <ListView x:Name="OffersView"
-                      ItemTapped="Offer_Clicked"
                       ItemSelected="OnSelection">
                 <ListView.ItemTemplate>
                     <DataTemplate>

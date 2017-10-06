@@ -2,10 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinMarketPlace.OfferPreviewPage"
-             Title="OfferTitle">
+             Title="{Binding Title}">
 
     <ContentPage.Content>
-
 
         <RelativeLayout>
             <Image x:Name="offerImage" Aspect="Fill" 
@@ -24,9 +23,9 @@
                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.30,Constant=0}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1,Constant=0}">
 
-                <Label Text="Title" HorizontalOptions="FillAndExpand" FontSize="Medium" />
-                <Label Text="Price" HorizontalOptions="FillAndExpand" FontSize="Medium" />
-                <Label Text="Description" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                <Label Text="{Binding Title}" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                <Label Text="{Binding Price}" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                <Label Text="{Binding Description}" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
                 <StackLayout Orientation="Horizontal">
                     <Label Text="0506688994" HorizontalOptions="FillAndExpand" FontSize="Medium" />
@@ -35,7 +34,6 @@
 
             </StackLayout>
         </RelativeLayout>
-
 
     </ContentPage.Content>
 </ContentPage>

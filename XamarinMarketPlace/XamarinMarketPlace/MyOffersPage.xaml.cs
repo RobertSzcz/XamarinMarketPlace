@@ -19,24 +19,43 @@ namespace XamarinMarketPlace
 		public MyOffersPage ()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
+            // get the default manager to handle azure
             manager = OfferManager.DefaultManager;
-            Init();
 			InitializeComponent ();
 		}
 
+        protected override void OnAppearing()
+        {
+            // updates listview from azure
+            Init();
+        }
+
         private async void Init()
         {
+            // get the data from Azure db and put it in collection
             offers = await manager.GetOffersByUserId(Constants.UserId);
             OffersView.ItemsSource = offers;
         }
 
-        async void Offer_Clicked(object sender, SelectedItemChangedEventArgs e)
+        public async void OnSelection(object sender, SelectedItemChangedEventArgs e)
         {
-        }
+            // this method is fired also when item is de-selected
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
 
-        void OnSelection(object sender, SelectedItemChangedEventArgs e)
-        {
+            Offer offer;
+
+            // just so that the selection is not visual
             ((ListView)sender).SelectedItem = null;
+
+            // we cast the selected object to offer
+            offer = (Offer)e.SelectedItem;
+
+            // send the data to editoffer page
+            var editOfferPage = new EditOfferPage() { BindingContext = offer };
+            await Navigation.PushAsync(editOfferPage);
         }
     }
 }

@@ -15,9 +15,7 @@ namespace XamarinMarketPlace
         MobileServiceClient client;
 
         IMobileServiceTable<Offer> offerTable;
-
-        const string offlineDbPath = @"localstore.db";
-
+        
         private OfferManager()
         {
             this.client = new MobileServiceClient(Constants.ApplicationURL);
@@ -41,13 +39,8 @@ namespace XamarinMarketPlace
         {
             get { return client; }
         }
-
-        public bool IsOfflineEnabled
-        {
-            get { return offerTable is Microsoft.WindowsAzure.MobileServices.Sync.IMobileServiceSyncTable<Offer>; }
-        }
-
-        public async Task<ObservableCollection<Offer>> GetOffersAsync(bool syncOffers = false)
+    
+        public async Task<ObservableCollection<Offer>> GetOffersAsync()
         {
             try
             {

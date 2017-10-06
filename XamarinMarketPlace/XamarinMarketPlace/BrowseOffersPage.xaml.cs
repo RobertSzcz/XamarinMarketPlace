@@ -28,27 +28,26 @@ namespace XamarinMarketPlace
             offers = await manager.GetOffersAsync();
             OffersView.ItemsSource = offers;
         }
-
-        async void Offer_Clicked(object sender, SelectedItemChangedEventArgs e)
-        {
-        }
-
-        void OnSelection(object sender, SelectedItemChangedEventArgs e)
-        {
-            ((ListView)sender).SelectedItem = null;
-        }
-
-        private void To_LandingPage_Clicked(object sender, EventArgs e)
-        {
-            App.Current.MainPage = new NavigationPage(new LandingPage());
-        }
-
-        async void To_OfferPreviewPage_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new OfferPreviewPage());
-        }
-
         
+        public async void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            // this method is fired also when item is de-selected
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
 
+            Offer offer;
+
+            // just so that the selection is not visual
+            ((ListView)sender).SelectedItem = null;
+
+            // we cast the selected object to offer
+            offer = (Offer)e.SelectedItem;
+
+            // send the data to editoffer page
+            var offerPreviewPage = new OfferPreviewPage() { BindingContext = offer };
+            await Navigation.PushAsync(offerPreviewPage);
+        }
     }
 }
