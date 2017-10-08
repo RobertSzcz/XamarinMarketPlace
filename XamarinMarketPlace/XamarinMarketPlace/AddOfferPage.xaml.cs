@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Plugin.Media;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -51,6 +53,31 @@ namespace XamarinMarketPlace
                 EntryPrice.Text = "";
                 EntryDescription.Text = "";
             }
+        }
+
+        public async void TakePicture_Clicked(object sender, EventArgs e)
+        {
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                DisplayAlert("No Camera", "No camera avaialble.", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                Directory = "Pictures",
+                Name = Guid.NewGuid().ToString()
+            });
+
+            if (file == null) return;
+
+            Image.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                file.Dispose();
+                return stream;
+            });
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)

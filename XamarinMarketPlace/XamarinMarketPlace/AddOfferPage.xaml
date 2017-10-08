@@ -23,8 +23,9 @@
                 <Editor HorizontalOptions="FillAndExpand" x:Name="EntryDescription" TextChanged="Entry_TextChanged"/>
             </StackLayout>
 
-            <Button Text="Take Picture" />
+            <Button Text="Take Picture" Clicked="TakePicture_Clicked"/>
             <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>
+            <Image x:Name="Image"/>
 
         </StackLayout>
     </ContentPage.Content>
