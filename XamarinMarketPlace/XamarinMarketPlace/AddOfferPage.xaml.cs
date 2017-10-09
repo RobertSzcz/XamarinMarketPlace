@@ -58,27 +58,7 @@ namespace XamarinMarketPlace
 
         public async void TakePicture_Clicked(object sender, EventArgs e)
         {
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                DisplayAlert("No Camera", "No camera available.", "OK");
-                return;
-            }
-
-            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-            {
-                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
-                Directory = "Pictures",
-                Name = Guid.NewGuid().ToString()
-            });
-
-            if (file == null) return;
-
-            Image.Source = ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+            Image.Source = await CameraManager.TakePictureAsync();
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
