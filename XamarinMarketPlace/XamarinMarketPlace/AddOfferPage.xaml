@@ -5,28 +5,29 @@
              Title="Add Offer">
 
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand"
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="Center"
                      Orientation="Vertical"
                      Padding="30">
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand" x:Name="EntryTitle" TextChanged="Entry_TextChanged"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Price:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand" x:Name="EntryPrice" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Editor HorizontalOptions="FillAndExpand" x:Name="EntryDescription" TextChanged="Entry_TextChanged"/>
-            </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
+                    <Entry HorizontalOptions="FillAndExpand" x:Name="EntryTitle" TextChanged="Entry_TextChanged"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Price:" WidthRequest="90" VerticalTextAlignment="Center"/>
+                    <Entry HorizontalOptions="FillAndExpand" x:Name="EntryPrice" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>
+                    <Editor HorizontalOptions="FillAndExpand" x:Name="EntryDescription" TextChanged="Entry_TextChanged"/>
+                </StackLayout>
+                <Image x:Name="Image"/>
+                <Button Text="Take Picture" Clicked="TakePicture_Clicked"/>
+                <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>
 
-            <Button Text="Take Picture" Clicked="TakePicture_Clicked"/>
-            <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>
-            <Image x:Name="Image"/>
-
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
