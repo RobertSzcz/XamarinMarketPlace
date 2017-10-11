@@ -12,6 +12,7 @@ namespace XamarinMarketPlace
         string title;
         string description;
         string price;
+        string photo;
 
         [JsonProperty(PropertyName = "userId")]
         public string UserId
@@ -46,6 +47,13 @@ namespace XamarinMarketPlace
         {
             get { return price; }
             set { price = value; }
+        }
+
+        [JsonProperty(PropertyName = "photo")]
+        public string Photo
+        {
+            get { return photo; }
+            set { photo = value; }
         }
     }
 }

@@ -34,8 +34,12 @@ namespace XamarinMarketPlace
             string title = EntryTitle.Text;
             string price = EntryPrice.Text;
             string description = EntryDescription.Text;
+            
             // testing purposes
             string userId = Constants.UserId;
+
+            // this name for photo is going to be in offer table in azure
+            string photoname = "uniquename";
             
             // checks whether all information is filled
             if (title == "" || price == "" || description == "")
@@ -45,9 +49,9 @@ namespace XamarinMarketPlace
             else
             {
                 // create new offer and send it to the db
-                var offer = new Offer { Title = title, Price = price, Description = description, UserId = userId };
+                var offer = new Offer { Title = title, Price = price, Description = description, UserId = userId, Photo = photoname};
                 await AddItem(offer);
-
+                
                 // clear the entries
                 EntryTitle.Text = "";
                 EntryPrice.Text = "";
