@@ -28,8 +28,8 @@
                 <Label Text="{Binding Description}" HorizontalOptions="FillAndExpand" FontSize="Medium" />
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="0506688994" HorizontalOptions="FillAndExpand" FontSize="Medium" />
-                    <Button Text="Call" HorizontalOptions="End" FontSize="Medium" />
+                    <Label x:Name="phonenumber" Text="0506688994" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                    <Button Text="Call" HorizontalOptions="End" FontSize="Medium" Clicked="Call_Clicked" />
                 </StackLayout>
 
             </StackLayout>
