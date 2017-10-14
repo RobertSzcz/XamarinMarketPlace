@@ -2,4 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="XamarinMarketPlace.Android"></application>
+  <uses-permission android:name="android.permission.CALL_PHONE" />
 </manifest>
