@@ -50,6 +50,7 @@
     <Compile Include="EditOfferPage.xaml.cs">
       <DependentUpon>EditOfferPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IDialer.cs" />
     <Compile Include="LandingPage.xaml.cs">
       <DependentUpon>LandingPage.xaml</DependentUpon>
     </Compile>

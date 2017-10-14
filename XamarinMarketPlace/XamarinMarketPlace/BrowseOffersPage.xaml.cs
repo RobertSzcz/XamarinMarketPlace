@@ -19,8 +19,13 @@ namespace XamarinMarketPlace
         public BrowseOffersPage ()
 		{
             NavigationPage.SetHasNavigationBar(this, false);
-            GetOffers();
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            // updates listview from azure
+            GetOffers();
         }
 
         private async void GetOffers()
