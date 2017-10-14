@@ -4,7 +4,6 @@
              x:Class="XamarinMarketPlace.EditOfferPage"
              Title="Edit My Offer">
 
-
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
@@ -36,7 +35,8 @@
 
             <Button Text="Change Picture" />
             <Button Text="Save Changes" IsEnabled="False" x:Name="btn_SaveChanges" Clicked="SaveChangesClicked"/>
-
+            <Button Text="Delete Offer" IsEnabled="True" x:Name="btn_DeleteOffer" Clicked="DeleteOfferClicked"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -45,6 +45,7 @@ namespace XamarinMarketPlace
             try
             {
                 IEnumerable<Offer> items = await offerTable
+                    .Where (offer => offer.Removed == false)
                     .ToEnumerableAsync();
 
                 return new ObservableCollection<Offer>(items);
@@ -66,6 +67,7 @@ namespace XamarinMarketPlace
             {
                 IEnumerable<Offer> items = await offerTable
                     .Where (offer => offer.UserId == userId)
+                    .Where (offer => offer.Removed == false)
                     .ToEnumerableAsync();
 
                 return new ObservableCollection<Offer>(items);

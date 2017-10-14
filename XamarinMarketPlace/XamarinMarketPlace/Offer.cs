@@ -12,8 +12,10 @@ namespace XamarinMarketPlace
         string title;
         string description;
         string price;
-        string photo;
+        string photoId;
+        bool removed;
 
+        // JsonProperty is the name in the azure for the property
         [JsonProperty(PropertyName = "userId")]
         public string UserId
         {
@@ -49,11 +51,18 @@ namespace XamarinMarketPlace
             set { price = value; }
         }
 
-        [JsonProperty(PropertyName = "photo")]
-        public string Photo
+        [JsonProperty(PropertyName = "photoId")]
+        public string PhotoId
         {
-            get { return photo; }
-            set { photo = value; }
+            get { return photoId; }
+            set { photoId = value; }
+        }
+
+        [JsonProperty(PropertyName = "removed")]
+        public bool Removed
+        {
+            get { return removed; }
+            set { removed = value; }
         }
     }
 }

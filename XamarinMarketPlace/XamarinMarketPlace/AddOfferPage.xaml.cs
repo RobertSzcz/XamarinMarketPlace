@@ -39,7 +39,8 @@ namespace XamarinMarketPlace
             string userId = Constants.UserId;
 
             // this name for photo is going to be in offer table in azure
-            string photoname = "uniquename";
+            // this is also going to be name in blob storage
+            string photoId = Guid.NewGuid().ToString();
             
             // checks whether all information is filled
             if (title == "" || price == "" || description == "")
@@ -49,9 +50,17 @@ namespace XamarinMarketPlace
             else
             {
                 // create new offer and send it to the db
-                var offer = new Offer { Title = title, Price = price, Description = description, UserId = userId, Photo = photoname};
+                var offer = new Offer {
+                    Title = title,
+                    Price = price,
+                    Description = description,
+                    UserId = userId,
+                    PhotoId = photoId,
+                    Removed = false
+                };
+
                 await AddItem(offer);
-                
+
                 // clear the entries
                 EntryTitle.Text = "";
                 EntryPrice.Text = "";

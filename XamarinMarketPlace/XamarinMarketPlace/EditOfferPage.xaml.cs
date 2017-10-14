@@ -57,5 +57,25 @@ namespace XamarinMarketPlace
                 await Navigation.PopAsync();
             }
         }
+
+        public async void DeleteOfferClicked(object sender, EventArgs e)
+        {
+            Offer offer = BindingContext as Offer;
+
+            var answer = await DisplayAlert("Alert", "Are you sure you want to delete this offer?", "Yes", "No");
+
+            if (answer)
+            {
+                offer.Removed = true;
+
+                await UpdateItem(offer);
+
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                // do nothing i guess
+            }
+        }
     }
 }
