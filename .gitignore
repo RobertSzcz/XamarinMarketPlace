@@ -1,3 +1,5 @@
+./vs/*
+./packages/*
 XamarinMarketPlace/XamarinMarketPlace/bin/*
 XamarinMarketPlace/XamarinMarketPlace/obj/*
 XamarinMarketPlace/XamarinMarketPlace.Android/bin/*
