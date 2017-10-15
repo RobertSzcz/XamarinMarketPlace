@@ -71,7 +71,8 @@ namespace XamarinMarketPlace
 
         public async void TakePicture_Clicked(object sender, EventArgs e)
         {
-            Image.Source = await CameraManager.TakePictureAsync();
+            var stream = await CameraManager.TakePictureAsync();
+            Image.Source = ImageSource.FromStream(() => stream);
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)

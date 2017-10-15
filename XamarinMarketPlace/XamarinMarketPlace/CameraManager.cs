@@ -11,7 +11,7 @@ namespace XamarinMarketPlace
 {
     class CameraManager
     {
-        public static async Task<ImageSource> TakePictureAsync()
+        public static async Task<System.IO.Stream> TakePictureAsync()
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
@@ -28,12 +28,9 @@ namespace XamarinMarketPlace
 
             if (file == null) return null;
 
-            return ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+            var stream = file.GetStream();
+            file.Dispose();
+            return stream;
         }
     }
 }
