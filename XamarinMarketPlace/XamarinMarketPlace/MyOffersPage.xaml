@@ -8,14 +8,18 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
-                     Padding="30">
+                     Padding="0, 30"
+                     BackgroundColor="#E0E0E0">
 
             <ListView x:Name="OffersView"
-                      ItemSelected="OnSelection">
+                      ItemSelected="OnSelection"
+                      BackgroundColor="White">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Vertical"
+                                         VerticalOptions="Center"
+                                         Padding="10, 0, 0, 0">
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding Title}" FontSize="Large"/>
                                     <Label Text="{Binding Price, StringFormat='{0}€'}" FontSize="Large"/>
