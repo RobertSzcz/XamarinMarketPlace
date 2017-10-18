@@ -13,6 +13,34 @@
                      Padding="30">
 
                 <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
+                        <Entry HorizontalOptions="FillAndExpand"
+                           x:Name="EntryTitle"
+                           Text="{Binding Title}"
+                           TextChanged="Entry_TextChanged"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                        <Label Text="Price (€):" VerticalTextAlignment="Center"/>
+                        <Entry HorizontalOptions="End"
+                           x:Name="EntryPrice" 
+                           Text="{Binding Price}" 
+                           TextChanged="Entry_TextChanged"
+                           Keyboard="Numeric"
+                           WidthRequest="80"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="Description:" VerticalTextAlignment="Center"/>
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                        x:Name="EntryDescription" 
+                        Text="{Binding Description}" 
+                        TextChanged="Entry_TextChanged"
+                        HeightRequest="90" />
+
+                <!--
+                <StackLayout Orientation="Horizontal">
                     <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
                     <Entry HorizontalOptions="FillAndExpand" x:Name="EntryTitle" TextChanged="Entry_TextChanged"/>
                 </StackLayout>
@@ -24,6 +52,8 @@
                     <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>
                     <Editor HorizontalOptions="FillAndExpand" x:Name="EntryDescription" TextChanged="Entry_TextChanged"/>
                 </StackLayout>
+                -->
+                
                 <Image x:Name="Image"/>
                 <Button Text="Take Picture" Clicked="TakePicture_Clicked"/>
                 <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>

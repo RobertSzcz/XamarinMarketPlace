@@ -14,26 +14,43 @@
                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=0}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=0}"/>
 
+
+            <Grid HorizontalOptions="FillAndExpand" 
+                     BackgroundColor="White"
+                     Opacity="0.5"
+                     x:Name="grid1"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.70,Constant=0}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=0}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.30,Constant=0}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1,Constant=0}"/>
+            
             <StackLayout HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Padding="30,15"
-                     BackgroundColor="White"
-                     Opacity="0.8"
+                     Opacity="1"
                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.70,Constant=0}"
                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Factor=0, Constant=0}"
                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.30,Constant=0}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1,Constant=0}">
 
-                <Label Text="{Binding Title}" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
-                <Label Text="{Binding Price}" HorizontalOptions="FillAndExpand" FontSize="Medium" />
-                <Label Text="{Binding Description}" HorizontalOptions="FillAndExpand" FontSize="Medium" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="layoutTapped"
+                        NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label x:Name="phonenumber" Text="0506688994" HorizontalOptions="FillAndExpand" FontSize="Medium" />
-                    <Button Text="Call" HorizontalOptions="End" FontSize="Medium" Clicked="Call_Clicked" />
-                </StackLayout>
+                <Label Text="{Binding Title}" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Black"/>
+                <Label Text="{Binding Price}" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Black"/>
+                <Label Text="{Binding Description}" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Black"/>
 
             </StackLayout>
+
+            <Button Text="Call" FontSize="Medium" Clicked="Call_Clicked" 
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.65, Constant=0}"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.70, Constant=0}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.10, Constant=0}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.25, Constant=0}"/>
+
         </RelativeLayout>
 
     </ContentPage.Content>

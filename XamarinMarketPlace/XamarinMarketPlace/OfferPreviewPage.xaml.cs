@@ -13,6 +13,9 @@ namespace XamarinMarketPlace
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OfferPreviewPage : ContentPage
     {
+
+        string phonenumber = "233232";
+
         public OfferPreviewPage()
         {
             InitializeComponent();
@@ -25,7 +28,7 @@ namespace XamarinMarketPlace
         {
             if (await this.DisplayAlert(
                     "Dial a Number",
-                    "Would you like to call " + phonenumber.Text + "?",
+                    "Would you like to call " + phonenumber + "?",
                     "Yes",
                     "No"))
             {
@@ -35,11 +38,16 @@ namespace XamarinMarketPlace
                     if (dialer != null)
                     {
                         //App.PhoneNumbers.Add(phonenumber.Text);
-                        dialer.Dial(phonenumber.Text);
+                        dialer.Dial(phonenumber);
                     }
                 } catch (Exception err) { Debug.WriteLine(err); }
 
             }
+        }
+        public void layoutTapped(object sender, EventArgs e)
+        {
+            grid1.BackgroundColor = new Color(255, 0, 0);
+            
         }
     }
 }

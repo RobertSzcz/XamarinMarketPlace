@@ -11,29 +11,34 @@
                      Padding="30">
 
             <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                 <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
                 <Entry HorizontalOptions="FillAndExpand"
-                       x:Name="EntryTitle"
-                       Text="{Binding Title}"
-                       IsEnabled="False"
-                       TextChanged="Entry_TextChanged"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Price:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand"
-                       x:Name="EntryPrice" 
-                       Text="{Binding Price}" 
-                       TextChanged="Entry_TextChanged"
-                       Keyboard="Numeric"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Editor HorizontalOptions="FillAndExpand"
+                           x:Name="EntryTitle"
+                           Text="{Binding Title}"
+                           IsEnabled="False"
+                           TextChanged="Entry_TextChanged"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                <Label Text="Price (€):" VerticalTextAlignment="Center"/>
+                <Entry HorizontalOptions="End"
+                           x:Name="EntryPrice" 
+                           Text="{Binding Price}" 
+                           TextChanged="Entry_TextChanged"
+                           Keyboard="Numeric"
+                           WidthRequest="80"/>
+                </StackLayout>
+            </StackLayout> 
+                
+            <Label Text="Description:" VerticalTextAlignment="Center"/>
+            <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                         x:Name="EntryDescription" 
                         Text="{Binding Description}" 
-                        TextChanged="Entry_TextChanged"/>
-            </StackLayout>
-
+                        TextChanged="Entry_TextChanged"
+                        HeightRequest="90" />
+            
+            
             <Button Text="Change Picture" />
             <Button Text="Save Changes" IsEnabled="False" x:Name="btn_SaveChanges" Clicked="SaveChangesClicked"/>
             <Button Text="Delete Offer" IsEnabled="True" x:Name="btn_DeleteOffer" Clicked="DeleteOfferClicked"/>
