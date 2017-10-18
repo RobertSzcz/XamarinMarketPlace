@@ -15,6 +15,7 @@ namespace XamarinMarketPlace
 	public partial class AddOfferPage : ContentPage
 	{
         OfferManager manager;
+        byte[] photo = null;
 
 		public AddOfferPage ()
 		{
@@ -38,17 +39,25 @@ namespace XamarinMarketPlace
             // testing purposes
             string userId = Constants.UserId;
 
-            // this name for photo is going to be in offer table in azure
-            // this is also going to be name in blob storage
-            string photoId = Guid.NewGuid().ToString();
-            
+
             // checks whether all information is filled
-            if (title == "" || price == "" || description == "")
+            if (title == "" || price == "" || description == "" || photo == null)
             {
                 await DisplayAlert("Error", "Please fill all the entries.", "OK");
             }
             else
             {
+                Btn_AddOffer.IsEnabled = false;
+
+                // this name for photo is going to be in offer table in azure
+                // this is also going to be name in blob storage
+                string photoId = Guid.NewGuid().ToString();
+
+                // upload stream to blob, should be change to bytearray later
+                var blob = new BlobManager();
+                var stream = new System.IO.MemoryStream(photo);
+                await blob.PerformBlobOperation(userId, photoId, stream);
+
                 // create new offer and send it to the db
                 var offer = new Offer {
                     Title = title,
@@ -66,20 +75,30 @@ namespace XamarinMarketPlace
                 EntryPrice.Text = "";
                 EntryDescription.Text = "";
                 Image.Source = null;
+                photo = null;
             }
         }
 
         public async void TakePicture_Clicked(object sender, EventArgs e)
         {
-            var stream = await CameraManager.TakePictureAsync();
-            Image.Source = ImageSource.FromStream(() => stream);
+            var photoStream = await CameraManager.TakePictureAsync();
+            Image.Source = ImageSource.FromStream(() => photoStream);
+            photoStream.Position = 0;
+            photo = photoStream.ToArray();
+            UpdateButtonStatus();
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(EntryTitle.Text) && 
+            UpdateButtonStatus();
+        }
+
+        private void UpdateButtonStatus()
+        {
+            if (!string.IsNullOrWhiteSpace(EntryTitle.Text) &&
                 !string.IsNullOrWhiteSpace(EntryPrice.Text) &&
-                !string.IsNullOrWhiteSpace(EntryDescription.Text))
+                !string.IsNullOrWhiteSpace(EntryDescription.Text) &&
+                photo != null)
             {
                 Btn_AddOffer.IsEnabled = true;
             }
