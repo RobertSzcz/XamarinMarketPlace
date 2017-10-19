@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -17,7 +18,7 @@ namespace XamarinMarketPlace
             blobClient = storageAccount.CreateCloudBlobClient();
         }
 
-        public async Task PerformBlobOperation(string userId, string photoName, Stream photo)
+        public async Task PerformBlobOperation(string userId, string photoName, byte[] photo)
         {
             // give this method userid, picture name and imagestream, and it creates a blobcontainer with userId, blob with picture name and puts image inside of it
             
@@ -28,22 +29,29 @@ namespace XamarinMarketPlace
             // create blob with the name provided
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(photoName);
 
+            blockBlob.Properties.ContentType = "image\\jpeg";
+            
             // finally push the picture into azure as a stream
-            await blockBlob.UploadFromStreamAsync(photo);
+            await blockBlob.UploadFromByteArrayAsync(photo, 0, photo.Length);
         }
         
-        public async Task<Stream> GetBlob(string userId, string photoname)
+        public async Task<byte[]> GetBlob(string userId, string photoname)
         {
             // Retrieve reference to a previously created container.
             CloudBlobContainer container = blobClient.GetContainerReference(userId);
 
             // Retrieve reference to a blob named "photo1.jpg".
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(photoname);
-
-            Stream stream = new MemoryStream();
-            await blockBlob.DownloadToStreamAsync(stream);
+            CloudBlockBlob blob = container.GetBlockBlobReference(photoname);
             
-            return stream;
+            if (await blob.ExistsAsync())
+            {
+                await blob.FetchAttributesAsync();
+                byte[] blobBytes = new byte[blob.Properties.Length];
+
+                await blob.DownloadToByteArrayAsync(blobBytes, 0);
+                return blobBytes;
+            }
+            return null;
         }
     }
 }

@@ -55,8 +55,8 @@ namespace XamarinMarketPlace
 
                 // upload stream to blob, should be change to bytearray later
                 var blob = new BlobManager();
-                var stream = new System.IO.MemoryStream(photo);
-                await blob.PerformBlobOperation(userId, photoId, stream);
+                // var stream = new System.IO.MemoryStream(photo);
+                await blob.PerformBlobOperation(userId, photoId, photo);
 
                 // create new offer and send it to the db
                 var offer = new Offer {
