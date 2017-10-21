@@ -13,10 +13,13 @@ namespace XamarinMarketPlace
 	public partial class EditOfferPage : ContentPage
 	{
         OfferManager manager;
+        byte[] photo = null;
+        Boolean updatePhoto = false;
 
 		public EditOfferPage ()
 		{
             manager = OfferManager.DefaultManager;
+            // load photo from BlobManager here!
 			InitializeComponent ();
 		}
 
@@ -47,6 +50,13 @@ namespace XamarinMarketPlace
             }
             else
             {
+                if (updatePhoto)
+                {
+                    string photoId = Guid.NewGuid().ToString();
+                    var blob = new BlobManager();
+                    await blob.PerformBlobOperation(Constants.UserId, photoId, photo);
+                    offer.PhotoId = photoId;
+                }
                 offer.Price = EntryPrice.Text;
                 offer.Description = EntryDescription.Text;
 
@@ -56,6 +66,13 @@ namespace XamarinMarketPlace
                 // pop this page and go back to my offers
                 await Navigation.PopAsync();
             }
+        }
+
+        public async void TakePictureClicked(object sender, EventArgs e)
+        {
+            photo = await CameraManager.TakePictureAsync();
+            Img_Offer.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(photo));
+            updatePhoto = true;
         }
 
         public async void DeleteOfferClicked(object sender, EventArgs e)

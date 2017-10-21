@@ -54,7 +54,7 @@
                 </StackLayout>
                 -->
                 
-                <Image x:Name="Image"/>
+                <Image x:Name="Img_Offer"/>
                 <Button Text="Take Picture" Clicked="TakePicture_Clicked"/>
                 <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>
 

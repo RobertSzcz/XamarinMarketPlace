@@ -6,7 +6,8 @@
              Title="Edit My Offer">
 
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand"
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand"
                      Orientation="Vertical"
                      Padding="30">
 
@@ -38,12 +39,13 @@
                         TextChanged="Entry_TextChanged"
                         HeightRequest="90" />
 
-            <Image x:Name="img_Offer"/>
+            <Image x:Name="Img_Offer"/>
 
-            <Button Text="Change Picture" />
+            <Button Text="Change Picture" Clicked="TakePictureClicked" />
             <Button Text="Save Changes" IsEnabled="False" x:Name="btn_SaveChanges" Clicked="SaveChangesClicked"/>
             <Button Text="Delete Offer" IsEnabled="True" x:Name="btn_DeleteOffer" Clicked="DeleteOfferClicked"/>
             
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

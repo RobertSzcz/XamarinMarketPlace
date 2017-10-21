@@ -74,17 +74,15 @@ namespace XamarinMarketPlace
                 EntryTitle.Text = "";
                 EntryPrice.Text = "";
                 EntryDescription.Text = "";
-                Image.Source = null;
+                Img_Offer.Source = null;
                 photo = null;
             }
         }
 
         public async void TakePicture_Clicked(object sender, EventArgs e)
         {
-            var photoStream = await CameraManager.TakePictureAsync();
-            Image.Source = ImageSource.FromStream(() => photoStream);
-            photoStream.Position = 0;
-            photo = photoStream.ToArray();
+            photo = await CameraManager.TakePictureAsync();
+            Img_Offer.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(photo));
             UpdateButtonStatus();
         }
 
