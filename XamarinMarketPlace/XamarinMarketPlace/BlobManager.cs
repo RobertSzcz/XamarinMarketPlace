@@ -28,8 +28,6 @@ namespace XamarinMarketPlace
 
             // create blob with the name provided
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(photoName);
-
-            blockBlob.Properties.ContentType = "image\\jpeg";
             
             // finally push the picture into azure as a stream
             await blockBlob.UploadFromByteArrayAsync(photo, 0, photo.Length);
