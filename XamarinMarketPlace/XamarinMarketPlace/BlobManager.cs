@@ -14,7 +14,7 @@ namespace XamarinMarketPlace
 
         public BlobManager()
         {
-            storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=xamarinproject;AccountKey=kUr9XCbX7ZiRil0DHb/HP/vnMj+uludogR0Y/gfj8whDeni/Pl0sCRybz5orrAzHIDVO+21vXTyyHaayGt1djA==;EndpointSuffix=core.windows.net");
+            storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=xamarinmarketplace;AccountKey=j1OpsT5ib4sh8NEIU2N9XfiLnwuCPjZ/c05NvRHo1axGXJJn74g+IvxqHUUNEOeHorOeU8aaznpupD1OFo11Yw==;EndpointSuffix=core.windows.net");
             blobClient = storageAccount.CreateCloudBlobClient();
         }
 

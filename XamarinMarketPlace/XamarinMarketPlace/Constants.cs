@@ -9,9 +9,9 @@ namespace XamarinMarketPlace
     class Constants
     {
         // This is our Azure Mobile App backend URL.
-        public static string ApplicationURL = @"https://xamarinproject.azurewebsites.net";
+        public static string ApplicationURL = @"https://xamarinmarketplace.azurewebsites.net";
 
         // test purposes
-        public static string UserId = "tester1337";
+        public static string UserId = "tester";
     }
 }
