@@ -80,7 +80,7 @@ namespace XamarinMarketPlace
         public async void TakePicture_Clicked(object sender, EventArgs e)
         {
             photo = await CameraManager.TakePictureAsync();
-            Img_Offer.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(photo));
+            Img_Offer.Source = ImageSourceGenerator.Call(photo);
             UpdateButtonStatus();
         }
 

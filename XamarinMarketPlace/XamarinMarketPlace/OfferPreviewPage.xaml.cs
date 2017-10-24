@@ -38,7 +38,7 @@ namespace XamarinMarketPlace
 
             var bytes = await BlobManager.GetImage(offer.PhotoId);
 
-            offerImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
+            offerImage.Source = ImageSourceGenerator.Call(bytes);
         }
 
         async void Call_Clicked(object sender, EventArgs e)
