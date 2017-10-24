@@ -53,8 +53,7 @@ namespace XamarinMarketPlace
                 if (updatePhoto)
                 {
                     string photoId = Guid.NewGuid().ToString();
-                    var blob = new BlobManager();
-                    await blob.PerformBlobOperation(Constants.UserId, photoId, photo);
+                    await BlobManager.UploadImage(photoId, photo);
                     offer.PhotoId = photoId;
                 }
                 offer.Price = EntryPrice.Text;

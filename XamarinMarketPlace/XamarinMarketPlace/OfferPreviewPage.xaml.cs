@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
+using System.IO;
 
 namespace XamarinMarketPlace
 {
@@ -20,8 +21,24 @@ namespace XamarinMarketPlace
         {
             InitializeComponent();
 
-            offerImage.Source = FileImageSource.FromUri(
-                new Uri("http://www.123mobilewallpapers.com/wp-content/uploads/2014/09/snow_on_hill.jpg"));
+            //offerImage.Source = FileImageSource.FromUri(
+            //    new Uri("http://www.123mobilewallpapers.com/wp-content/uploads/2014/09/snow_on_hill.jpg"));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            GetImage();
+        }
+
+        private async void GetImage()
+        {
+            var offer = BindingContext as Offer;
+
+            var bytes = await BlobManager.GetImage(offer.PhotoId);
+
+            offerImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
         }
 
         async void Call_Clicked(object sender, EventArgs e)

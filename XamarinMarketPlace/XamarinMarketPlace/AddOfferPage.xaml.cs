@@ -52,11 +52,9 @@ namespace XamarinMarketPlace
                 // this name for photo is going to be in offer table in azure
                 // this is also going to be name in blob storage
                 string photoId = Guid.NewGuid().ToString();
-
-                // upload stream to blob, should be change to bytearray later
-                var blob = new BlobManager();
+                
                 // var stream = new System.IO.MemoryStream(photo);
-                await blob.PerformBlobOperation(userId, photoId, photo);
+                await BlobManager.UploadImage(photoId, photo);
 
                 // create new offer and send it to the db
                 var offer = new Offer {

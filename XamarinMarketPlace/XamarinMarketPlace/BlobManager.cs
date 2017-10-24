@@ -9,32 +9,52 @@ namespace XamarinMarketPlace
 {
     public class BlobManager
     {
-        private CloudStorageAccount storageAccount;
-        private CloudBlobClient blobClient;
-
         public BlobManager()
         {
-            storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=xamarinmarketplace;AccountKey=j1OpsT5ib4sh8NEIU2N9XfiLnwuCPjZ/c05NvRHo1axGXJJn74g+IvxqHUUNEOeHorOeU8aaznpupD1OFo11Yw==;EndpointSuffix=core.windows.net");
-            blobClient = storageAccount.CreateCloudBlobClient();
+
         }
 
-        public async Task PerformBlobOperation(string userId, string photoName, byte[] photo)
+        private static CloudBlobContainer GetContainer()
+        {
+            var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=xamarinmarketplace;AccountKey=j1OpsT5ib4sh8NEIU2N9XfiLnwuCPjZ/c05NvRHo1axGXJJn74g+IvxqHUUNEOeHorOeU8aaznpupD1OFo11Yw==;EndpointSuffix=core.windows.net");
+
+            var client = account.CreateCloudBlobClient();
+
+            var container = client.GetContainerReference(Constants.UserId);
+
+            return container;
+        }
+
+        public static async Task UploadImage(string photoName, byte[] photo)
         {
             // give this method userid, picture name and imagestream, and it creates a blobcontainer with userId, blob with picture name and puts image inside of it
-            
-            // we want to put our images inside blobcontainer "images"
-            CloudBlobContainer container = blobClient.GetContainerReference(userId);
+            var container = GetContainer();
+
             await container.CreateIfNotExistsAsync();
 
-            // create blob with the name provided
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(photoName);
-            
-            // finally push the picture into azure as a stream
-            await blockBlob.UploadFromByteArrayAsync(photo, 0, photo.Length);
+            var imageBlob = container.GetBlockBlobReference(photoName);
+
+            await imageBlob.UploadFromByteArrayAsync(photo, 0, photo.Length);
         }
         
-        public async Task<byte[]> GetBlob(string userId, string photoname)
+        public static async Task<byte[]> GetImage(string photoname)
         {
+            var container = GetContainer();
+
+            var blob = container.GetBlockBlobReference(photoname);
+
+            if (await blob.ExistsAsync())
+            {
+                await blob.FetchAttributesAsync();
+
+                byte[] blobBytes = new byte[blob.Properties.Length];
+
+                await blob.DownloadToByteArrayAsync(blobBytes, 0);
+
+                return blobBytes;
+            }
+
+            /*
             // Retrieve reference to a previously created container.
             CloudBlobContainer container = blobClient.GetContainerReference(userId);
 
@@ -49,6 +69,7 @@ namespace XamarinMarketPlace
                 await blob.DownloadToByteArrayAsync(blobBytes, 0);
                 return blobBytes;
             }
+            */
             return null;
         }
     }
