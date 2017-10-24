@@ -20,7 +20,7 @@ namespace XamarinMarketPlace
 
             var client = account.CreateCloudBlobClient();
 
-            var container = client.GetContainerReference(Constants.UserId);
+            var container = client.GetContainerReference("photos");
 
             return container;
         }
@@ -53,23 +53,6 @@ namespace XamarinMarketPlace
 
                 return blobBytes;
             }
-
-            /*
-            // Retrieve reference to a previously created container.
-            CloudBlobContainer container = blobClient.GetContainerReference(userId);
-
-            // Retrieve reference to a blob named "photo1.jpg".
-            CloudBlockBlob blob = container.GetBlockBlobReference(photoname);
-            
-            if (await blob.ExistsAsync())
-            {
-                await blob.FetchAttributesAsync();
-                byte[] blobBytes = new byte[blob.Properties.Length];
-
-                await blob.DownloadToByteArrayAsync(blobBytes, 0);
-                return blobBytes;
-            }
-            */
             return null;
         }
     }
