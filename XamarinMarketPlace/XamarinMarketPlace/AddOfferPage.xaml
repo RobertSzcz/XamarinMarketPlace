@@ -8,9 +8,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand"
-                     VerticalOptions="Center"
-                     Orientation="Vertical"
-                     Padding="30">
+                         VerticalOptions="Start"
+                         Orientation="Vertical"
+                         Padding="30">
 
                 <StackLayout Orientation="Horizontal">
                     <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
@@ -39,23 +39,18 @@
                         TextChanged="Entry_TextChanged"
                         HeightRequest="90" />
 
-                <!--
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                    <Entry HorizontalOptions="FillAndExpand" x:Name="EntryTitle" TextChanged="Entry_TextChanged"/>
+                <StackLayout Orientation="Horizontal"
+                             Padding="0, 15">
+                    <Image x:Name="offerImage" Aspect="AspectFill" WidthRequest="150" HeightRequest="150">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="ViewImage"
+                                NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Button Text="Take Picture" Clicked="TakePicture_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Price:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                    <Entry HorizontalOptions="FillAndExpand" x:Name="EntryPrice" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Description:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                    <Editor HorizontalOptions="FillAndExpand" x:Name="EntryDescription" TextChanged="Entry_TextChanged"/>
-                </StackLayout>
-                -->
-                
-                <Image x:Name="Img_Offer"/>
-                <Button Text="Take Picture" Clicked="TakePicture_Clicked"/>
+
                 <Button Text="Add Offer" IsEnabled="False" Clicked="AddOffer_Clicked" x:Name="Btn_AddOffer"/>
 
             </StackLayout>

@@ -15,17 +15,24 @@ namespace XamarinMarketPlace
         OfferManager manager;
         byte[] photo = null;
         Boolean updatePhoto = false;
+        bool viewingImage;
 
-		public EditOfferPage ()
+        public EditOfferPage ()
 		{
             manager = OfferManager.DefaultManager;
             // load photo from BlobManager here!
 			InitializeComponent ();
 		}
 
+        protected override void OnAppearing()
+        {
+            viewingImage = false;
+            GetImage();
+        }
+
         protected override void OnDisappearing()
         {
-            Navigation.PopAsync();
+            if(!viewingImage) Navigation.PopAsync();
         }
 
         private async Task UpdateItem(Offer offer)
@@ -75,7 +82,7 @@ namespace XamarinMarketPlace
         public async void TakePictureClicked(object sender, EventArgs e)
         {
             photo = await CameraManager.TakePictureAsync();
-            Img_Offer.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(photo));
+            offerImage.Source = ImageSource.FromStream(() => new System.IO.MemoryStream(photo));
             updatePhoto = true;
         }
 
@@ -93,10 +100,24 @@ namespace XamarinMarketPlace
 
                 await Navigation.PopAsync();
             }
-            else
-            {
-                // do nothing i guess
-            }
+        }
+
+        async void ViewImage()
+        {
+            var viewImagePage = new ViewImagePage();
+            viewImagePage.BindingContext = new { offerImage = offerImage.Source };
+            viewingImage = true;
+
+            await Navigation.PushModalAsync(viewImagePage);
+        }
+
+        private async void GetImage()
+        {
+            var offer = BindingContext as Offer;
+
+            var bytes = await BlobManager.GetImage(offer.PhotoId);
+
+            offerImage.Source = ImageSourceGenerator.Call(bytes);
         }
     }
 }

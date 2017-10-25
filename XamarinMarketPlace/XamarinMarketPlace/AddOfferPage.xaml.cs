@@ -16,10 +16,13 @@ namespace XamarinMarketPlace
 	{
         OfferManager manager;
         byte[] photo = null;
+        ImageSource defaultImage = ImageSource.FromFile("nopicture.png");
 
 		public AddOfferPage ()
 		{
 			InitializeComponent ();
+
+            offerImage.Source = defaultImage;
 
             manager = OfferManager.DefaultManager;
 		}
@@ -72,7 +75,7 @@ namespace XamarinMarketPlace
                 EntryTitle.Text = "";
                 EntryPrice.Text = "";
                 EntryDescription.Text = "";
-                Img_Offer.Source = null;
+                offerImage.Source = null;
                 photo = null;
             }
         }
@@ -80,7 +83,7 @@ namespace XamarinMarketPlace
         public async void TakePicture_Clicked(object sender, EventArgs e)
         {
             photo = await CameraManager.TakePictureAsync();
-            Img_Offer.Source = ImageSourceGenerator.Call(photo);
+            offerImage.Source = ImageSourceGenerator.Call(photo);
             UpdateButtonStatus();
         }
 
@@ -98,6 +101,16 @@ namespace XamarinMarketPlace
             {
                 Btn_AddOffer.IsEnabled = true;
             }
+        }
+
+        async void ViewImage()
+        {
+            if (offerImage.Source != defaultImage) {
+                var viewImagePage = new ViewImagePage();
+                viewImagePage.BindingContext = new { offerImage = offerImage.Source };
+                await Navigation.PushModalAsync(viewImagePage);
+            }
+
         }
     }
 }

@@ -8,43 +8,52 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand"
-                     Orientation="Vertical"
-                     Padding="30">
+                         VerticalOptions="Start"
+                         Orientation="Vertical"
+                         Padding="30">
 
-            <StackLayout Orientation="Horizontal">
-                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="FillAndExpand"
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Title:" WidthRequest="90" VerticalTextAlignment="Center"/>
+                        <Entry HorizontalOptions="FillAndExpand"
                            x:Name="EntryTitle"
                            Text="{Binding Title}"
-                           IsEnabled="False"
-                           TextChanged="Entry_TextChanged"/>
-                </StackLayout>
+                           Completed="Entry_TextChanged"/>
+                    </StackLayout>
 
-                <StackLayout Orientation="Vertical" HorizontalOptions="End">
-                <Label Text="Price (€):" VerticalTextAlignment="Center"/>
-                <Entry HorizontalOptions="End"
+                    <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                        <Label Text="Price (€):" VerticalTextAlignment="Center"/>
+                        <Entry HorizontalOptions="End"
                            x:Name="EntryPrice" 
                            Text="{Binding Price}" 
-                           TextChanged="Entry_TextChanged"
+                           Completed="Entry_TextChanged"
                            Keyboard="Numeric"
                            WidthRequest="80"/>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout> 
-                
-            <Label Text="Description:" VerticalTextAlignment="Center"/>
-            <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
-                        x:Name="EntryDescription" 
-                        Text="{Binding Description}" 
-                        TextChanged="Entry_TextChanged"
-                        HeightRequest="90" />
 
-            <Image x:Name="Img_Offer"/>
+                <Label Text="Description:" VerticalTextAlignment="Center"/>
+                <Editor HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                    x:Name="EntryDescription" 
+                    Text="{Binding Description}" 
+                    Completed="Entry_TextChanged"
+                    HeightRequest="90" />
 
-            <Button Text="Change Picture" Clicked="TakePictureClicked" />
-            <Button Text="Save Changes" IsEnabled="False" x:Name="btn_SaveChanges" Clicked="SaveChangesClicked"/>
-            <Button Text="Delete Offer" IsEnabled="True" x:Name="btn_DeleteOffer" Clicked="DeleteOfferClicked"/>
-            
+                <StackLayout Orientation="Horizontal"
+                            Padding="0, 15">
+                    <Image x:Name="offerImage" Aspect="AspectFill" WidthRequest="150" HeightRequest="150" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="ViewImage"
+                                NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Button Text="Change Picture" Clicked="TakePictureClicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <Button Text="Save Changes" IsEnabled="False" x:Name="btn_SaveChanges" Clicked="SaveChangesClicked"/>
+                <Button Text="Delete Offer" IsEnabled="True" x:Name="btn_DeleteOffer" Clicked="DeleteOfferClicked"/>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
