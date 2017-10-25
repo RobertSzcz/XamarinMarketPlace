@@ -27,9 +27,12 @@ namespace XamarinMarketPlace
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-
             GetImage();
+        }
+
+        protected override void OnDisappearing()
+        {
+            Navigation.PopAsync();
         }
 
         private async void GetImage()

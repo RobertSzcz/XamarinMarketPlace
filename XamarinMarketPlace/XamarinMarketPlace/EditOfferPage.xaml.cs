@@ -23,6 +23,11 @@ namespace XamarinMarketPlace
 			InitializeComponent ();
 		}
 
+        protected override void OnDisappearing()
+        {
+            Navigation.PopAsync();
+        }
+
         private async Task UpdateItem(Offer offer)
         {
             // sends offer to the manager to be handled
