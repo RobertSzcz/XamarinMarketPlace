@@ -25975,7 +25975,7 @@
     "UAP,Version=v10.0.10586": []
   },
   "packageFolders": {
-    "C:\\Users\\Joni\\.nuget\\packages\\": {}
+    "C:\\Users\\jonia\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
@@ -25983,11 +25983,11 @@
       "projectName": "XamarinMarketPlace.UWP",
       "projectPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\XamarinMarketPlace.UWP.csproj",
       "projectJsonPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\project.json",
-      "packagesPath": "C:\\Users\\Joni\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\jonia\\.nuget\\packages\\",
       "outputPath": "C:\\DEV\\Repositories\\Xamarin\\XamarinMarketPlace\\XamarinMarketPlace\\XamarinMarketPlace.UWP\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
-        "C:\\Users\\Joni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jonia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "sources": {
