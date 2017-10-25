@@ -7,6 +7,42 @@
 
     <ContentPage.Content>
 
+        <AbsoluteLayout x:Name="offerPreviewLayout">
+
+            <Image x:Name="offerImage" Aspect="AspectFill" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+
+
+
+            <Grid HorizontalOptions="FillAndExpand" 
+                     BackgroundColor="White"
+                     Opacity="0.5"
+                     x:Name="offerInfoBackground">
+            </Grid>
+
+            <StackLayout HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Padding="30,15"
+                     Opacity="1"
+                     x:Name="offerInfoLayout">
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="layoutTapped"
+                        NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+
+                <Label Text="{Binding Title}" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Black"/>
+                <Label Text="{Binding Price, StringFormat='{0}€'}" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Black"/>
+                <Label Text="{Binding Description}" HorizontalOptions="FillAndExpand" FontSize="Medium" TextColor="Black"/>
+
+            </StackLayout>
+
+            <Button Text="Call" FontSize="Medium" Clicked="Call_Clicked" x:Name="callButton"/>
+
+        </AbsoluteLayout>
+        
+        <!--
         <RelativeLayout>
             <Image x:Name="offerImage" Aspect="Fill" 
                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=0}"
@@ -52,6 +88,7 @@
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.25, Constant=0}"/>
 
         </RelativeLayout>
+        -->
 
     </ContentPage.Content>
 </ContentPage>

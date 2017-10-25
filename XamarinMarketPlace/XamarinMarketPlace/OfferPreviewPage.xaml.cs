@@ -16,17 +16,16 @@ namespace XamarinMarketPlace
     {
 
         string phonenumber = "233232";
+        bool offerInfoIsFullscreen = false;
 
         public OfferPreviewPage()
         {
             InitializeComponent();
-
-            //offerImage.Source = FileImageSource.FromUri(
-            //    new Uri("http://www.123mobilewallpapers.com/wp-content/uploads/2014/09/snow_on_hill.jpg"));
         }
 
         protected override void OnAppearing()
         {
+            SetOfferInfoLayoutBounds();
             GetImage();
         }
 
@@ -57,7 +56,6 @@ namespace XamarinMarketPlace
                 try {
                     if (dialer != null)
                     {
-                        //App.PhoneNumbers.Add(phonenumber.Text);
                         dialer.Dial(phonenumber);
                     }
                 } catch (Exception err) { Debug.WriteLine(err); }
@@ -66,8 +64,37 @@ namespace XamarinMarketPlace
         }
         public void layoutTapped(object sender, EventArgs e)
         {
-            grid1.BackgroundColor = new Color(255, 0, 0);
+            var main = this.Bounds;
+
+            if (!offerInfoIsFullscreen)
+            {
+                offerInfoBackground.LayoutTo(new Rectangle(0, 0, main.Width, main.Height), 300, Easing.SinIn);
+                offerInfoLayout.LayoutTo(new Rectangle(0, 0, main.Width, main.Height), 300, Easing.SinIn);
+                callButton.LayoutTo(new Rectangle(callButton.X, 10, callButton.Width, callButton.Height), 300, Easing.SinIn);
+                offerInfoIsFullscreen = true;
+            } else
+            {
+                double callButtonPosY = main.Height - (main.Height / 3) - (callButton.Height / 2);
+
+                offerInfoBackground.LayoutTo(new Rectangle(0, main.Height - (main.Height / 3), main.Width, main.Height), 300, Easing.SinIn);
+                offerInfoLayout.LayoutTo(new Rectangle(0, main.Height - (main.Height / 3), main.Width, main.Height), 300, Easing.SinIn);
+                callButton.LayoutTo(new Rectangle(callButton.X, callButtonPosY, callButton.Width, callButton.Height), 300, Easing.SinIn);
+                offerInfoIsFullscreen = false;
+            }
+        }
+
+        private void SetOfferInfoLayoutBounds()
+        {
+            var main = this.Bounds;
+
+            double callButtonPosY = main.Height - (main.Height / 3) - (callButton.Height / 2);
+            double callButtonPosX = main.Width - (main.Width / 3);
+
             
+            offerInfoBackground.Layout(new Rectangle(0, main.Height - (main.Height / 3), main.Width, main.Height));
+            offerInfoLayout.Layout(new Rectangle(0, main.Height - (main.Height / 3), main.Width, main.Height));
+            callButton.Layout(new Rectangle(callButtonPosX, callButtonPosY, callButton.Width, callButton.Height));
+
         }
     }
 }
