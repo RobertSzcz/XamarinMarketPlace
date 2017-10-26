@@ -16,7 +16,7 @@ namespace XamarinMarketPlace
 
         private static CloudBlobContainer GetContainer()
         {
-            var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=xamarinmarketplace;AccountKey=j1OpsT5ib4sh8NEIU2N9XfiLnwuCPjZ/c05NvRHo1axGXJJn74g+IvxqHUUNEOeHorOeU8aaznpupD1OFo11Yw==;EndpointSuffix=core.windows.net");
+            var account = CloudStorageAccount.Parse(Constants.ConnectionString);
 
             var client = account.CreateCloudBlobClient();
 

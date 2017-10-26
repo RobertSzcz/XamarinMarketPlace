@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace XamarinMarketPlace
+﻿namespace XamarinMarketPlace
 {
     class Constants
     {
@@ -13,5 +7,7 @@ namespace XamarinMarketPlace
 
         // test purposes
         public static string UserId = "joni";
+
+        public static string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=xamarinmarketplace;AccountKey=j1OpsT5ib4sh8NEIU2N9XfiLnwuCPjZ/c05NvRHo1axGXJJn74g+IvxqHUUNEOeHorOeU8aaznpupD1OFo11Yw==;EndpointSuffix=core.windows.net";
     }
 }

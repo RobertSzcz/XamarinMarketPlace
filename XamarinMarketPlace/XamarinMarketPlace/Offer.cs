@@ -1,6 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
-using Microsoft.WindowsAzure.MobileServices;
+﻿using Newtonsoft.Json;
 
 namespace XamarinMarketPlace
 {

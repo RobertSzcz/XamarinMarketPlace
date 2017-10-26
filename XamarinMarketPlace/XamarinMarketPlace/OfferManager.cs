@@ -2,44 +2,31 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 
+// from azure sample code "toDoItem"
+// modified for our purposes
 namespace XamarinMarketPlace
 {
     public partial class OfferManager
     {
         static OfferManager defaultInstance = new OfferManager();
         MobileServiceClient client;
-
         IMobileServiceTable<Offer> offerTable;
         
         private OfferManager()
         {
             this.client = new MobileServiceClient(Constants.ApplicationURL);
-
             this.offerTable = client.GetTable<Offer>();
         }
 
         public static OfferManager DefaultManager
         {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
+            get { return defaultInstance; }
+            private set { defaultInstance = value; }
         }
 
-        public MobileServiceClient CurrentClient
-        {
-            get { return client; }
-        }
-    
         public async Task<ObservableCollection<Offer>> GetOffersAsync()
         {
             try
